@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Index - iPortfolio Bootstrap Template</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <title>Index - MJ Visuals Photography</title>
+  <meta content="Professional photography services for sports, events, and portraits by MJ Visuals." name="description">
+  <meta content="photography, sports photography, event photography, portrait photography, Norman Oklahoma, MJ Visuals" name="keywords">
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
@@ -15,22 +15,85 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;0,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;0,900&display=swap" rel="stylesheet">
 
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <!-- Using CDN for Bootstrap Icons for reliability -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <link href="assets/css/main.css" rel="stylesheet">
 
-  </head>
+  <style>
+    /* CSS to hide gallery links on the index page */
+    body.index-page .navmenu ul li.gallery-link {
+      display: none;
+    }
 
-<body class="index-page">
+    /* Ensure gallery links are visible on other pages */
+    body:not(.index-page) .navmenu ul li.gallery-link {
+      display: block; /* Or 'flex', 'inline-block' depending on your main.css styling */
+    }
+
+    /* --- UPDATED CSS FOR UNIFORM GALLERY BOX SIZES & NO OVERLAY --- */
+    .gallery-cover {
+      position: relative;
+      width: 100%;
+      /* Set a consistent 4:3 landscape aspect ratio for all gallery covers on the main page */
+      padding-bottom: 75%; /* Height is 3/4 of width for landscape */
+      overflow: hidden; /* Ensures image doesn't spill out */
+      border-radius: 0.5rem; /* Apply border-radius to the container */
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); /* Apply shadow to the container */
+    }
+
+    .gallery-cover-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Ensures image covers the area without distortion, cropping as needed */
+      object-position: center; /* Centers the image within the frame */
+      /* Added blur filter */
+      filter: blur(3px); /* Adjust blur amount as needed */
+      transition: filter 0.3s ease-in-out; /* Smooth transition for blur */
+    }
+
+    .gallery-cover:hover .gallery-cover-img {
+      filter: blur(0px); /* Remove blur on hover */
+    }
+
+    .gallery-title-overlay {
+      position: absolute;
+      /* Center horizontally and vertically */
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%; /* Ensure it spans the width for text-align */
+      color: white; /* Text color remains white for contrast */
+      text-align: center; /* Ensures text is centered */
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.9); /* Stronger shadow for readability on blurred images */
+      /* Optional: Add a background for better contrast on blurred images */
+      /* background-color: rgba(0, 0, 0, 0.4); */
+      /* padding: 10px 0; */
+    }
+
+    .gallery-title {
+      margin: 0;
+      font-size: 1.5rem; /* Slightly larger font for better visibility on blurred images */
+      font-weight: bold;
+    }
+    /* --- END UPDATED CSS --- */
+  </style>
+
+</head>
+
+<body class="index-page"> <!-- Added 'index-page' class to body -->
 
   <header id="header" class="header dark-background d-flex flex-column">
     <i class="header-toggle d-xl-none bi bi-list"></i>
 
     <div class="profile-img">
-      <img src="assets/img/Mjvisualspfp.png" alt="" class="img-fluid rounded-circle">
+      <img src="assets/img/Mjvisualspfp.png" alt="Madhav Jayachand Profile Picture" class="img-fluid rounded-circle">
     </div>
 
     <a href="index.html" class="logo d-flex align-items-center justify-content-center">
@@ -38,15 +101,22 @@
     </a>
 
     <div class="social-links text-center">
-      <a href="https://instagram.com/mj.visuals.co" class="instagram"><i class="bi bi-instagram"></i></a>
-      <a href="https://mail.google.com/mail/?view=cm&to=madhavjayachand@gmail.com" class="email"><i class="bi bi-envelope"></i></a>
-      <a href="https://linkedin.com/in/madhavjayachand" class="linkedin"><i class="bi bi-linkedin"></i></a>
+      <a href="https://instagram.com/mj.visuals.co" class="instagram" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+      <a href="https://mail.google.com/mail/?view=cm&to=madhavjayachand@gmail.com" class="email" aria-label="Email"><i class="bi bi-envelope"></i></a>
+      <!-- Removed LinkedIn link -->
     </div>
 
     <nav id="navmenu" class="navmenu">
       <ul>
-        <li><a href="index.html#hero"><i class="bi bi-house navicon"></i> Home</a></li>
+        <li><a href="index.html#hero" class="active"><i class="bi bi-house navicon"></i> Home</a></li>
         <li><a href="index.html#about"><i class="bi bi-person navicon"></i> About</a></li>
+        <!-- New: Portfolio link to the section on the same page -->
+        <li><a href="index.html#portfolio"><i class="bi bi-images navicon"></i> Portfolio</a></li>
+        <!-- Gallery links - these will be hidden on index.html by CSS -->
+        <li class="gallery-link"><a href="gallery-sports.html"><i class="bi bi-trophy navicon"></i> Sports</a></li>
+        <li class="gallery-link"><a href="gallery-event.html"><i class="bi bi-calendar-event navicon"></i> Event</a></li>
+        <li class="gallery-link"><a href="gallery-portraits.html"><i class="bi bi-person-square navicon"></i> Portraits</a></li>
+        <!-- Removed 'Other' gallery link for consistency -->
         <li><a href="index.html#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
       </ul>
     </nav>
@@ -56,22 +126,21 @@
   <main class="main">
 
     <section id="hero" class="hero section dark-background">
-
-      <img src="assets/img/PortfolioBackground1.jpg" alt="" data-aos="fade-in" class="">
-
+      <img src="assets/img/PortfolioBackground1.jpg" alt="Photography Background" data-aos="fade-in" class="">
       <div class="container-align-center" data-aos="fade-up" data-aos-delay="100">
         <h2>MJ Visuals</h2>
-        <p><span class="typed" data-typed-items="Sports, Events, Portraits">Designer</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
+        <p><span class="typed" data-typed-items="Sports, Events, Portraits"></span></p>
       </div>
+    </section>
 
-    </section><section id="about" class="about section">
+    <section id="about" class="about section">
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-7" data-aos="fade-up">
             <div class="section-title">
               <h2>About</h2>
               <p>
-                I'm a photographer and videographer in Norman, Oklahoma, driven by the power of a great image. I specialize in freezing the action of sports, the energy of events, and the genuine emotion of portraits, always aiming to create impactful and lasting visual stories. If you're looking for some sports photos, event coverage, stunning portraits or even videos, Im here to help. Feel free to reach out for custom shoots or even collaborations.
+                I'm a photographer and videographer in Norman, Oklahoma, driven by the power of a great image. I specialize in freezing the action of sports, the energy of events, and the genuine emotion of portraits, always aiming to create impactful and lasting visual stories. If you're looking for some sports photos, event coverage, stunning portraits or even videos, I'm here to help. Feel free to reach out for custom shoots or even collaborations.
               </p>
             </div>
           </div>
@@ -86,10 +155,24 @@
       <div class="container section-title" data-aos="fade-up">
         <h2>Portfolio</h2>
         <p>Check out some of my work!</p>
-      </div><div class="container">
-        <div class="row gy-4">
+      </div>
+      <div class="container">
+        <div class="row gy-4 justify-content-center"> <!-- Added justify-content-center -->
 
-          <div class="col-lg-6 col-md-6">
+          <!-- Sports Gallery Cover -->
+          <div class="col-lg-6 col-md-8 col-sm-10 col-12"> <!-- Adjusted column classes for smaller width and centered -->
+            <a href="gallery-sports.html" class="text-decoration-none">
+              <div class="gallery-cover position-relative" style="cursor:pointer;">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-01.jpg" class="img-fluid rounded shadow gallery-cover-img" alt="Sports Gallery Cover">
+                <div class="gallery-title-overlay">
+                  <h4 class="gallery-title">Sports</h4>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Event Gallery Cover -->
+          <div class="col-lg-6 col-md-8 col-sm-10 col-12"> <!-- Adjusted column classes for smaller width and centered -->
             <a href="gallery-event.html" class="text-decoration-none">
               <div class="gallery-cover position-relative" style="cursor:pointer;">
                 <img src="assets/img/portfolio/EventPhoto-1.jpg" class="img-fluid rounded shadow gallery-cover-img" alt="Event Gallery Cover">
@@ -99,7 +182,9 @@
               </div>
             </a>
           </div>
-          <div class="col-lg-6 col-md-6">
+
+          <!-- Portraits Gallery Cover -->
+          <div class="col-lg-6 col-md-8 col-sm-10 col-12"> <!-- Adjusted column classes for smaller width and centered -->
             <a href="gallery-portraits.html" class="text-decoration-none">
               <div class="gallery-cover position-relative" style="cursor:pointer;">
                 <img src="assets/img/portfolio/Portrait-1.jpg" class="img-fluid rounded shadow gallery-cover-img" alt="Portraits Gallery Cover">
@@ -109,52 +194,48 @@
               </div>
             </a>
           </div>
-          <div class="col-lg-6 col-md-6">
-            <a href="gallery-other.html" class="text-decoration-none">
-              <div class="gallery-cover position-relative" style="cursor:pointer;">
-                <img src="assets/img/portfolio/OtherPhoto.jpg" class="img-fluid rounded shadow gallery-cover-img" alt="Other Gallery Cover">
-                <div class="gallery-title-overlay">
-                  <h4 class="gallery-title">Other</h4>
-                </div>
-              </div>
-            </a>
-          </div>
 
-        </div></div></section>
+          <!-- Other Gallery Cover - REMOVED -->
+          <!-- This section was previously commented out or removed based on prior requests -->
+
+        </div>
+      </div>
+    </section>
 
     <section id="contact" class="contact section">
-
       <div class="container section-title" data-aos="fade-up">
         <h2>Contact</h2>
-        <p>Heres how to contact me!</p>
+        <p>Here's how to contact me!</p>
       </div>
       <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
 
         <div class="row gy-4">
 
           <div class="col-lg-5">
-
-
             <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
               <i class="bi bi-geo-alt flex-shrink-0"></i>
               <div>
                 <h3>Location</h3>
                 <p>Norman, Oklahoma</p>
               </div>
-            </div><div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+            </div>
+            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
               <i class="bi bi-envelope flex-shrink-0"></i>
               <div>
                 <h3>Email Me</h3>
                 <p>madhavjayachand@gmail.com</p>
               </div>
-            </div><div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+            </div>
+            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
               <i class="bi bi-telephone flex-shrink-0"></i>
               <div>
                 <h3>Call me</h3>
                 <p>+1 405-317-9705</p>
               </div>
-            </div>
-          </div><div class="col-lg-7">
+            </a>
+          </div>
+
+          <div class="col-lg-7">
             <form id="contact-form" action="https://submit-form.com/zPgQlnBxF" method="POST">
               <div class="mb-3">
                 <label for="name-field" class="form-label">Your Name</label>
@@ -188,20 +269,30 @@
                     form.style.display = 'none';
                     document.getElementById('thank-you-message').style.display = 'block';
                   } else {
-                    alert('There was a problem submitting your form.');
+                    // Using a custom message box instead of alert()
+                    const errorMessage = document.createElement('div');
+                    errorMessage.className = 'alert alert-danger mt-3';
+                    errorMessage.textContent = 'There was a problem submitting your form. Please try again later.';
+                    form.parentNode.insertBefore(errorMessage, form.nextSibling);
                   }
+                }).catch(function(error) {
+                  // Using a custom message box instead of alert()
+                  const errorMessage = document.createElement('div');
+                  errorMessage.className = 'alert alert-danger mt-3';
+                  errorMessage.textContent = 'Network error: Could not submit form. Please check your connection.';
+                  form.parentNode.insertBefore(errorMessage, form.nextSibling);
                 });
               });
             </script>
           </div>
-          </div>
+        </div>
       </div>
-
-    </section></main>
+    </section>
+  </main>
 
   <footer id="footer" class="footer position-relative light-background">
-
-    </footer>
+    <!-- Footer content here if any -->
+  </footer>
 
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
@@ -220,6 +311,20 @@
 
   <script src="assets/js/main.js"></script>
   <script>
+    // Initialize Typed.js for the hero section text animation
+    const typedElement = document.querySelector('.typed');
+    if (typedElement) {
+      let typed_strings = typedElement.getAttribute('data-typed-items');
+      typed_strings = typed_strings.split(',');
+      new Typed('.typed', {
+        strings: typed_strings,
+        loop: true,
+        typeSpeed: 100,
+        backSpeed: 50,
+        backDelay: 2000
+      });
+    }
+
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
@@ -231,6 +336,14 @@
           });
         }
       });
+    });
+
+    // Initialize AOS (Animate On Scroll)
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false
     });
   </script>
 

@@ -3,37 +3,79 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Sports Gallery - iPortfolio</title>
+  <title>Sports Gallery - MJ Visuals Photography</title>
+  <meta content="Dynamic sports photography by MJ Visuals, capturing the action and emotion of the game." name="description">
+  <meta content="sports photography, basketball photography, action shots, athletic events, Norman Oklahoma, MJ Visuals" name="keywords">
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;0,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;0,900&display=swap" rel="stylesheet">
+
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <!-- IMPORTANT: Using CDN for Bootstrap Icons for reliability -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link href="assets/css/main.css" rel="stylesheet">
+
+  <style>
+    /* Ensure gallery links are visible on this page (not index-page) */
+    body.gallery-page .navmenu ul li.gallery-link {
+      display: block; /* Or 'flex', 'inline-block' depending on your main.css styling */
+    }
+
+    /* --- UPDATED CSS FOR UNIFORM GALLERY IMAGE LAYOUT (Portrait Aspect Ratio) --- */
+    .gallery-item-container {
+      position: relative;
+      width: 100%;
+      /* Changed to 133.33% for a 3:4 portrait aspect ratio (height is 4/3 of width) */
+      padding-bottom: 133.33%;
+      overflow: hidden; /* Ensures image doesn't spill out */
+      border-radius: 0.5rem; /* Matches the rounded shadow on the image */
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); /* Matches the shadow on the image */
+    }
+
+    .gallery-item-container img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Scales the image to cover the container, cropping if necessary */
+      object-position: center; /* Centers the image within the container */
+      border-radius: 0.5rem; /* Apply border-radius to the image itself */
+    }
+    /* --- END UPDATED CSS --- */
+  </style>
 </head>
-<body class="gallery-page">
+<body class="gallery-page"> <!-- Ensure this body class is present -->
   <header id="header" class="header dark-background d-flex flex-column">
     <i class="header-toggle d-xl-none bi bi-list"></i>
     <div class="profile-img">
-      <img src="assets/img/Mjvisualspfp.png" alt="" class="img-fluid rounded-circle">
+      <img src="assets/img/Mjvisualspfp.png" alt="Madhav Jayachand Profile Picture" class="img-fluid rounded-circle">
     </div>
     <a href="index.html" class="logo d-flex align-items-center justify-content-center">
       <h1 class="sitename">Madhav Jayachand</h1>
     </a>
     <div class="social-links text-center">
-      <a href="https://instagram.com/mj.visuals.co" class="instagram"><i class="bi bi-instagram"></i></a>
-      <a href="https://mail.google.com/mail/?view=cm&to=madhavjayachand@gmail.com" class="email"><i class="bi bi-envelope"></i></a>
-      <a href="https://linkedin.com/in/madhavjayachand" class="linkedin"><i class="bi bi-linkedin"></i></a>
+      <a href="https://instagram.com/mj.visuals.co" class="instagram" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+      <a href="https://mail.google.com/mail/?view=cm&to=madhavjayachand@gmail.com" class="email" aria-label="Email"><i class="bi bi-envelope"></i></a>
+      <!-- LinkedIn link removed -->
     </div>
     <nav id="navmenu" class="navmenu">
       <ul>
         <li><a href="index.html#hero"><i class="bi bi-house navicon"></i> Home</a></li>
         <li><a href="index.html#about"><i class="bi bi-person navicon"></i> About</a></li>
-        <li><a href="gallery-event.html"><i class="bi bi-calendar-event navicon"></i> Event</a></li>
-        <li><a href="gallery-sports.html" class="active"><i class="bi bi-trophy navicon"></i> Sports</a></li>
-        <li><a href="gallery-portraits.html"><i class="bi bi-person-square navicon"></i> Portraits</a></li>
-        <li><a href="gallery-other.html"><i class="bi bi-collection navicon"></i> Other</a></li>
-        <li><a href="index.html#packages"><i class="bi bi-hdd-stack navicon"></i> Packages</a></li>
+        <!-- Added Portfolio link for consistency across gallery pages -->
+        <li><a href="index.html#portfolio"><i class="bi bi-images navicon"></i> Portfolio</a></li>
+        <!-- Sports Gallery link -->
+        <li class="gallery-link"><a href="gallery-sports.html" class="active"><i class="bi bi-trophy navicon"></i> Sports</a></li>
+        <li class="gallery-link"><a href="gallery-event.html"><i class="bi bi-calendar-event navicon"></i> Event</a></li>
+        <li class="gallery-link"><a href="gallery-portraits.html"><i class="bi bi-person-square navicon"></i> Portraits</a></li>
+        <!-- Removed 'Other' gallery link as requested -->
         <li><a href="index.html#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
       </ul>
     </nav>
@@ -46,19 +88,432 @@
           <p>Check out my sports photography!</p>
         </div>
         <div class="row g-4" data-aos="fade-up" data-aos-delay="100">
+          <!-- Images 1 to 61 -->
           <div class="col-lg-4 col-md-6">
-            <a href="assets/img/portfolio/books-1.jpg" class="glightbox" data-gallery="sports-gallery">
-              <img src="assets/img/portfolio/books-1.jpg" class="img-fluid rounded shadow" alt="Sports 1">
+            <a href="assets/img/portfolio/SportsPortfolio-01.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-01.jpg" class="img-fluid" alt="Sports 1">
+              </div>
             </a>
           </div>
           <div class="col-lg-4 col-md-6">
-            <a href="assets/img/portfolio/books-2.jpg" class="glightbox" data-gallery="sports-gallery">
-              <img src="assets/img/portfolio/books-2.jpg" class="img-fluid rounded shadow" alt="Sports 2">
+            <a href="assets/img/portfolio/SportsPortfolio-02.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-02.jpg" class="img-fluid" alt="Sports 2">
+              </div>
             </a>
           </div>
           <div class="col-lg-4 col-md-6">
-            <a href="assets/img/portfolio/books-3.jpg" class="glightbox" data-gallery="sports-gallery">
-              <img src="assets/img/portfolio/books-3.jpg" class="img-fluid rounded shadow" alt="Sports 3">
+            <a href="assets/img/portfolio/SportsPortfolio-03.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-03.jpg" class="img-fluid" alt="Sports 3">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-04.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-04.jpg" class="img-fluid" alt="Sports 4">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-05.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-05.jpg" class="img-fluid" alt="Sports 5">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-06.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-06.jpg" class="img-fluid" alt="Sports 6">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-07.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-07.jpg" class="img-fluid" alt="Sports 7">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-08.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-08.jpg" class="img-fluid" alt="Sports 8">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-09.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-09.jpg" class="img-fluid" alt="Sports 9">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-10.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-10.jpg" class="img-fluid" alt="Sports 10">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-11.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-11.jpg" class="img-fluid" alt="Sports 11">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-12.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-12.jpg" class="img-fluid" alt="Sports 12">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-13.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-13.jpg" class="img-fluid" alt="Sports 13">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-14.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-14.jpg" class="img-fluid" alt="Sports 14">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-15.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-15.jpg" class="img-fluid" alt="Sports 15">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-16.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-16.jpg" class="img-fluid" alt="Sports 16">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-17.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-17.jpg" class="img-fluid" alt="Sports 17">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-18.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-18.jpg" class="img-fluid" alt="Sports 18">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-19.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-19.jpg" class="img-fluid" alt="Sports 19">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-20.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-20.jpg" class="img-fluid" alt="Sports 20">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-21.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-21.jpg" class="img-fluid" alt="Sports 21">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-22.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-22.jpg" class="img-fluid" alt="Sports 22">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-23.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-23.jpg" class="img-fluid" alt="Sports 23">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-24.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-24.jpg" class="img-fluid" alt="Sports 24">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-25.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-25.jpg" class="img-fluid" alt="Sports 25">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-26.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-26.jpg" class="img-fluid" alt="Sports 26">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-27.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-27.jpg" class="img-fluid" alt="Sports 27">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-28.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-28.jpg" class="img-fluid" alt="Sports 28">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-29.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-29.jpg" class="img-fluid" alt="Sports 29">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-30.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-30.jpg" class="img-fluid" alt="Sports 30">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-31.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-31.jpg" class="img-fluid" alt="Sports 31">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-32.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-32.jpg" class="img-fluid" alt="Sports 32">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-33.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-33.jpg" class="img-fluid" alt="Sports 33">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-34.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-34.jpg" class="img-fluid" alt="Sports 34">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-35.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-35.jpg" class="img-fluid" alt="Sports 35">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-36.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-36.jpg" class="img-fluid" alt="Sports 36">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-37.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-37.jpg" class="img-fluid" alt="Sports 37">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-38.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-38.jpg" class="img-fluid" alt="Sports 38">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-39.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-39.jpg" class="img-fluid" alt="Sports 39">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-40.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-40.jpg" class="img-fluid" alt="Sports 40">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-41.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-41.jpg" class="img-fluid" alt="Sports 41">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-42.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-42.jpg" class="img-fluid" alt="Sports 42">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-43.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-43.jpg" class="img-fluid" alt="Sports 43">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-44.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-44.jpg" class="img-fluid" alt="Sports 44">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-45.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-45.jpg" class="img-fluid" alt="Sports 45">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-46.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-46.jpg" class="img-fluid" alt="Sports 46">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-47.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-47.jpg" class="img-fluid" alt="Sports 47">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-48.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-48.jpg" class="img-fluid" alt="Sports 48">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-49.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-49.jpg" class="img-fluid" alt="Sports 49">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-50.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-50.jpg" class="img-fluid" alt="Sports 50">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-51.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-51.jpg" class="img-fluid" alt="Sports 51">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-52.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-52.jpg" class="img-fluid" alt="Sports 52">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-53.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-53.jpg" class="img-fluid" alt="Sports 53">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-54.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-54.jpg" class="img-fluid" alt="Sports 54">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-55.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-55.jpg" class="img-fluid" alt="Sports 55">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-56.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-56.jpg" class="img-fluid" alt="Sports 56">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-57.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-57.jpg" class="img-fluid" alt="Sports 57">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-58.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-58.jpg" class="img-fluid" alt="Sports 58">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-59.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-59.jpg" class="img-fluid" alt="Sports 59">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-60.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-60.jpg" class="img-fluid" alt="Sports 60">
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <a href="assets/img/portfolio/SportsPortfolio-61.jpg" class="glightbox" data-gallery="sports-gallery">
+              <div class="gallery-item-container">
+                <img src="assets/img/portfolio/SportsPortfolioThumbnail-61.jpg" class="img-fluid" alt="Sports 61">
+              </div>
             </a>
           </div>
         </div>
