@@ -83,6 +83,39 @@
       font-weight: bold;
     }
     /* --- END UPDATED CSS --- */
+
+    /* --- NEW CSS FOR TYPED.JS CURSOR FIX AND STYLING --- */
+    /* Style for the typed text container */
+    .hero .container-align-center p {
+      height: 40px; /* Fixed height to prevent bumping */
+      line-height: 40px; /* Match line-height to height */
+      white-space: nowrap; /* Prevent text from wrapping */
+      overflow: hidden; /* Hide any overflow */
+      position: relative; /* For cursor positioning */
+      display: inline-block; /* Ensure it respects width/height and centers */
+      vertical-align: top; /* Align with the top of the h2 if they are side-by-side or block */
+    }
+
+    /* Ensure the typed cursor is visible and styled correctly */
+    .typed-cursor {
+        opacity: 1 !important; /* Force visibility */
+        font-size: 2.5rem; /* Match the font size of the typed text, adjust as needed */
+        color: white; /* Ensure cursor is white */
+        vertical-align: middle; /* Align with text baseline */
+        animation: blink 0.7s infinite; /* Add blinking animation */
+    }
+
+    /* Keyframes for blinking animation */
+    @keyframes blink {
+        0% { opacity: 1; }
+        50% { opacity: 0; }
+        100% { opacity: 1; }
+    }
+
+    /* This rule will hide any *additional* cursors if typed.js creates more than one */
+    .typed-cursor:not(:first-of-type) {
+        display: none !important;
+    }
   </style>
 
 </head>
@@ -129,6 +162,7 @@
       <img src="assets/img/PortfolioBackground1.jpg" alt="Photography Background" data-aos="fade-in" class="">
       <div class="container-align-center" data-aos="fade-up" data-aos-delay="100">
         <h2>MJ Visuals</h2>
+        <!-- Removed inline style from p tag to allow CSS to control it -->
         <p><span class="typed" data-typed-items="Sports, Events, Portraits"></span></p>
       </div>
     </section>
@@ -157,10 +191,10 @@
         <p>Check out some of my work!</p>
       </div>
       <div class="container">
-        <div class="row gy-4 justify-content-center"> <!-- Added justify-content-center -->
+        <div class="row gy-4 justify-content-center">
 
           <!-- Sports Gallery Cover -->
-          <div class="col-lg-6 col-md-8 col-sm-10 col-12"> <!-- Adjusted column classes for smaller width and centered -->
+          <div class="col-lg-6 col-md-8 col-sm-10 col-12">
             <a href="gallery-sports.html" class="text-decoration-none">
               <div class="gallery-cover position-relative" style="cursor:pointer;">
                 <img src="assets/img/portfolio/SportsPortfolioThumbnail-01.jpg" class="img-fluid rounded shadow gallery-cover-img" alt="Sports Gallery Cover">
@@ -172,7 +206,7 @@
           </div>
 
           <!-- Event Gallery Cover -->
-          <div class="col-lg-6 col-md-8 col-sm-10 col-12"> <!-- Adjusted column classes for smaller width and centered -->
+          <div class="col-lg-6 col-md-8 col-sm-10 col-12">
             <a href="gallery-event.html" class="text-decoration-none">
               <div class="gallery-cover position-relative" style="cursor:pointer;">
                 <img src="assets/img/portfolio/EventPhoto-1.jpg" class="img-fluid rounded shadow gallery-cover-img" alt="Event Gallery Cover">
@@ -184,7 +218,7 @@
           </div>
 
           <!-- Portraits Gallery Cover -->
-          <div class="col-lg-6 col-md-8 col-sm-10 col-12"> <!-- Adjusted column classes for smaller width and centered -->
+          <div class="col-lg-6 col-md-8 col-sm-10 col-12">
             <a href="gallery-portraits.html" class="text-decoration-none">
               <div class="gallery-cover position-relative" style="cursor:pointer;">
                 <img src="assets/img/portfolio/Portrait-1.jpg" class="img-fluid rounded shadow gallery-cover-img" alt="Portraits Gallery Cover">
@@ -194,9 +228,6 @@
               </div>
             </a>
           </div>
-
-          <!-- Other Gallery Cover - REMOVED -->
-          <!-- This section was previously commented out or removed based on prior requests -->
 
         </div>
       </div>
@@ -211,7 +242,7 @@
 
         <div class="row gy-4">
 
-          <div class="col-lg-5">
+          <div class="col-md-5">
             <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
               <i class="bi bi-geo-alt flex-shrink-0"></i>
               <div>
@@ -223,7 +254,7 @@
               <i class="bi bi-envelope flex-shrink-0"></i>
               <div>
                 <h3>Email Me</h3>
-                <p>madhavjayachand@gmail.com</p>
+                <p>mj.visuals.co@gmail.com</p>
               </div>
             </div>
             <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
@@ -232,10 +263,10 @@
                 <h3>Call me</h3>
                 <p>+1 405-317-9705</p>
               </div>
-            </a>
+            </div>
           </div>
 
-          <div class="col-lg-7">
+          <div class="col-md-7">
             <form id="contact-form" action="https://submit-form.com/zPgQlnBxF" method="POST">
               <div class="mb-3">
                 <label for="name-field" class="form-label">Your Name</label>
@@ -321,7 +352,9 @@
         loop: true,
         typeSpeed: 100,
         backSpeed: 50,
-        backDelay: 2000
+        backDelay: 2000,
+        showCursor: true, // Ensure cursor is enabled
+        cursorChar: '|' // Define the cursor character
       });
     }
 
